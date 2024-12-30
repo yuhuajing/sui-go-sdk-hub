@@ -8,6 +8,7 @@ import (
 )
 
 func AddrFromKey(key string) string {
+	
 	p, err := ed25519.PublicKeyFromSeed(key)
 	if err != nil {
 		log.Printf("Error export pub key: %v", err)

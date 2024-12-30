@@ -4,14 +4,11 @@ import (
 	"context"
 	"encoding/json"
 	"fmt"
-	"github.com/block-vision/sui-go-sdk/constant"
 	"github.com/block-vision/sui-go-sdk/models"
-	"github.com/block-vision/sui-go-sdk/sui"
 )
 
 func GetAllObjectsValues() {
 	var ctx = context.Background()
-	var cli = sui.NewSuiClient(constant.SuiTestnetEndpoint)
 
 	suiObjectResponseQuery := models.SuiObjectResponseQuery{
 		// only fetch the effects field

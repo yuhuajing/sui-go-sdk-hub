@@ -3,18 +3,14 @@ package src
 import (
 	"context"
 	"fmt"
-	"github.com/block-vision/sui-go-sdk/constant"
 	"github.com/block-vision/sui-go-sdk/models"
-	"github.com/block-vision/sui-go-sdk/sui"
 	"github.com/block-vision/sui-go-sdk/utils"
 	"github.com/okx/go-wallet-sdk/crypto/ed25519"
 )
 
 func SendSuiObject() {
 	var ctx = context.Background()
-	var cli = sui.NewSuiClient(constant.SuiTestnetEndpoint)
 
-	var key = ""
 	priKey, err := ed25519.PrivateKeyFromSeed(key)
 	fmt.Printf("signerAccount.Address: %s\n", AddrFromKey(key))
 

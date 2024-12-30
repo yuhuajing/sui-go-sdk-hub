@@ -3,22 +3,23 @@ package src
 import (
 	"context"
 	"fmt"
-	"github.com/block-vision/sui-go-sdk/constant"
+	"log"
+
 	"github.com/block-vision/sui-go-sdk/models"
-	"github.com/block-vision/sui-go-sdk/sui"
+
 	"github.com/block-vision/sui-go-sdk/utils"
 	"github.com/okx/go-wallet-sdk/crypto/ed25519"
 )
 
 func SendModuleCallObject() {
 	var ctx = context.Background()
-	var cli = sui.NewSuiClient(constant.SuiTestnetEndpoint)
-
-	var key = ""
+	if key == "" {
+		log.Fatal("Empty key")
+	}
 	priKey, err := ed25519.PrivateKeyFromSeed(key)
 	fmt.Printf("signerAccount.Address: %s\n", AddrFromKey(key))
 
-	gasObj := "0xd06dcde26d48f533a093df3fe9eb0fb8ffb6ed357ddec2c027a631052d68029b"
+	gasObj := "0x1b7aaaf599e9d6ff56f257a62d69f58e3fd11430ef2a86b83e4913f36f7354ce"
 
 	rsp, err := cli.MoveCall(ctx, models.MoveCallRequest{
 		Signer:          AddrFromKey(key),
@@ -27,7 +28,7 @@ func SendModuleCallObject() {
 		Function:        "verify",
 		TypeArguments:   []interface{}{},
 		Arguments: []interface{}{
-			"c3e95eec136eb2c9d1ef7ff5ee6f1fd38897362175cd76899c0735a5112081445659834d3259146c03bbb75fa102b8066666466a4c2eef2e015b11969b479415",
+			"d3e95eec136eb2c9d1ef7ff5ee6f1fd38897362175cd76899c0735a5112081445659834d3259146c03bbb75fa102b8066666466a4c2eef2e015b11969b479415",
 			"0475a3b9e2b8b14739f4e66adb08adb20200d5b2c24b53522574b782428b85bb8d10c6ba7134153f3c647b0aae73d5e2a1cb128ce0273e60f2fc030cb4d8dbb810",
 			"Hello world!",
 			//"0x2cba318afda7b04022cf7522925e11117a966b35771bc9e10679c5b0a0c7739b",

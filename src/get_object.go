@@ -4,15 +4,12 @@ import (
 	"context"
 	"encoding/json"
 	"fmt"
-	"github.com/block-vision/sui-go-sdk/constant"
 	"github.com/block-vision/sui-go-sdk/models"
-	"github.com/block-vision/sui-go-sdk/sui"
 	"github.com/block-vision/sui-go-sdk/utils"
 )
 
 func GetObjectValues() {
 	var ctx = context.Background()
-	var cli = sui.NewSuiClient(constant.SuiTestnetEndpoint)
 
 	rsp, err := cli.SuiGetObject(ctx, models.SuiGetObjectRequest{
 		ObjectId: "0xad5519de766a8577f9b993265c876b0d0cd75d9a43543764b26eac1c8e794f79",

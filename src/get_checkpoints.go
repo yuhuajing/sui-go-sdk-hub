@@ -3,15 +3,12 @@ package src
 import (
 	"context"
 	"fmt"
-	"github.com/block-vision/sui-go-sdk/constant"
 	"github.com/block-vision/sui-go-sdk/models"
-	"github.com/block-vision/sui-go-sdk/sui"
 	"github.com/block-vision/sui-go-sdk/utils"
 )
 
 func GetCheckpoints() {
 	var ctx = context.Background()
-	var cli = sui.NewSuiClient(constant.SuiTestnetEndpoint)
 
 	rsp, err := cli.SuiGetCheckpoints(ctx, models.SuiGetCheckpointsRequest{
 		Limit:           2,

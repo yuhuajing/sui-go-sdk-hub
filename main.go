@@ -5,5 +5,5 @@ import (
 )
 
 func main() {
-	src.GetCheckpoints()
+	src.SendModuleCallObject()
 }
